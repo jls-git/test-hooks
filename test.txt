@@ -1,0 +1,17 @@
+
+
+You can do it in the pre-commit hook placing a below file, modifying the .sample file, located in /.git/hooks/pre-commit.sample. and renaming it to pre-commit.
+
+Something like this
+
+   #!/bin/sh
+   #
+   # An example hook script to verify what is about to be committed.
+   # Called by "git commit" with no arguments
+   # blah...
+   date >> README.md
+   git add README.md
+   echo "Updated the time in README"
+   exit 0
+
+So every time you make a commit using git commit, README.md file will be update with the time. P.S: You can improve the date command using sed to update the time, the ex. here just updates it every time you commit. Also, this will only work if you're using GIT BASH desktop app.
